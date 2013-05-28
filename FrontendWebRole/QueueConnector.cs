@@ -41,9 +41,11 @@ namespace FrontendWebRole
 
         public static void Initialize()
         {
-            // Use Http to be friendly with outbound firewalls.
-            ServiceBusEnvironment.SystemConnectivity.Mode =
-                ConnectivityMode.Http;
+            //// Use Http to be friendly with outbound firewalls.
+            //ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.Http;
+            //ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.Tcp;
+            ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.AutoDetect; // Defaults to TCP with HTTP as a backup.
+            
 
             // Get an instance of the namespace manager
             // to get access to management operations.
